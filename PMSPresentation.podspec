@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PMSPresentation'
-  s.version          = '0.1.0'
+  s.version          = '1.0.0'
   s.summary          = 'PMSPresentation for PMS App'
   s.swift_version    = '5.4'
 
