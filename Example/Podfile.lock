@@ -1,0 +1,16 @@
+PODS:
+  - PMSPresentation (0.1.0)
+
+DEPENDENCIES:
+  - PMSPresentation (from `../`)
+
+EXTERNAL SOURCES:
+  PMSPresentation:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  PMSPresentation: f9d5595674e93dcc32fc69f1cb32360775c9a993
+
+PODFILE CHECKSUM: 90d98d63415979df9455150bf869dc13eef80c2d
+
+COCOAPODS: 1.10.1
