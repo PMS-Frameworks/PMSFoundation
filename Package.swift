@@ -29,6 +29,6 @@ let package = Package(
         .target(
             name: "PMSPresentation",
             dependencies: [],
-            path: "PMSPresentation/Classes"))
+            path: "PMSPresentation/Classes")
     ]
 )
