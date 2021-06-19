@@ -47,4 +47,5 @@ Pod::Spec.new do |s|
   s.dependency 'Kingfisher', '~> 6.0.0'
   s.dependency 'ReachabilitySwift', '~> 5.0.0'
   s.dependency 'RxFlow', '~> 2.11.0'
+  s.dependency 'PMSRxModule', '~> 1.0.0'
 end
