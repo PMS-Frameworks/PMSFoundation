@@ -19,16 +19,16 @@ let package = Package(
         .package(url: "https://github.com/Juanpe/SkeletonView", from: "1.17.0"),
         .package(url: "https://github.com/Swinject/Swinject", from: "2.7.0"),
         .package(url: "https://github.com/Swinject/SwinjectAutoregistration", from: "2.7.0"),
-        .package(url: "https://github.com/airbnb/lottie-ios", from: "3.2.0"),
+        .package(name: "Lottie", url: "https://github.com/airbnb/lottie-ios", from: "3.2.0"),
         .package(url: "https://github.com/onevcat/Kingfisher", from: "6.0.0"),
-        .package(url: "https://github.com/ashleymills/Reachability.swift", from: "5.0.0"),
+        .package(name: "Reachability", url: "https://github.com/ashleymills/Reachability.swift", from: "5.0.0"),
         .package(url: "https://github.com/RxSwiftCommunity/RxFlow", from: "2.11.0"),
         .package(url: "https://github.com/PMS-Frameworks/PMSRxModule", from: "1.0.0"),
     ],
     targets: [
         .target(
             name: "PMSPresentation",
-            dependencies: [],
+            dependencies: ["RxDataSources", "SnapKit", "Then", "SkeletonView", "Swinject", "SwinjectAutoregistration", "Lottie", "Kingfisher", "Reachability", "RxFlow", "PMSRxModule"],
             path: "PMSPresentation/Classes")
     ]
 )
