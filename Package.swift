@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "PMSPresentation",
-    platforms: [.iOS(.v11)],
+    platforms: [.iOS(.v11), .macOS(.v10_12)],
     products: [
         .library(
             name: "PMSPresentation",
@@ -13,6 +13,7 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
+        
         .package(url: "https://github.com/RxSwiftCommunity/RxDataSources", from: "4.0.1"),
         .package(url: "https://github.com/SnapKit/SnapKit", from: "5.0.0"),
         .package(url: "https://github.com/devxoul/Then", from: "2.7.0"),
@@ -28,7 +29,12 @@ let package = Package(
     targets: [
         .target(
             name: "PMSPresentation",
-            dependencies: ["RxDataSources", "SnapKit", "Then", "SkeletonView", "Swinject", "SwinjectAutoregistration", "Lottie", "Kingfisher", "Reachability", "RxFlow", "PMSRxModule"],
+            dependencies: [
+                .product(name: "SnapKit", package: "SnapKit", condition: .when(platforms: [.iOS])),
+                .product(name: "Kingfisher", package: "Kingfisher", condition: .when(platforms: [.iOS])),
+                .product(name: "SkeletonView", package: "SkeletonView", condition: .when(platforms: [.iOS])),
+                "RxDataSources", "Then", "Swinject", "SwinjectAutoregistration", "Lottie", "Reachability", "RxFlow", "PMSRxModule"
+            ],
             path: "PMSPresentation/Classes")
     ]
 )
