@@ -48,5 +48,5 @@ Pod::Spec.new do |s|
   s.dependency 'ReachabilitySwift', '~> 5.0.0'
   s.dependency 'RxFlow', '~> 2.11.0'
   s.dependency 'PMSRxModule', '~> 1.0.0'
-  s.dependency 'FSCalendar', '~> '2.8.2'
+  s.dependency 'FSCalendar', '~> 2.8.2'
 end
