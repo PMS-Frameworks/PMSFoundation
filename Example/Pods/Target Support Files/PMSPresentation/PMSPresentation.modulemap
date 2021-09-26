@@ -1,6 +1,0 @@
-framework module PMSPresentation {
-  umbrella header "PMSPresentation-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -5,15 +5,13 @@ import PackageDescription
 
 let package = Package(
     name: "PMSPresentation",
-    platforms: [.iOS(.v11), .macOS(.v10_12)],
+    platforms: [.iOS(.v11)],
     products: [
         .library(
             name: "PMSPresentation",
             targets: ["PMSPresentation"]),
     ],
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        
         .package(url: "https://github.com/RxSwiftCommunity/RxDataSources", from: "4.0.1"),
         .package(url: "https://github.com/SnapKit/SnapKit", from: "5.0.0"),
         .package(url: "https://github.com/devxoul/Then", from: "2.7.0"),
@@ -25,6 +23,7 @@ let package = Package(
         .package(name: "Reachability", url: "https://github.com/ashleymills/Reachability.swift", from: "5.0.0"),
         .package(url: "https://github.com/RxSwiftCommunity/RxFlow", from: "2.11.0"),
         .package(url: "https://github.com/PMS-Frameworks/PMSRxModule", from: "1.0.0"),
+        .package(url: "https://github.com/WenchaoD/FSCalendar", from: "2.8.2"),
     ],
     targets: [
         .target(
@@ -33,7 +32,7 @@ let package = Package(
                 .product(name: "SnapKit", package: "SnapKit", condition: .when(platforms: [.iOS])),
                 .product(name: "Kingfisher", package: "Kingfisher", condition: .when(platforms: [.iOS])),
                 .product(name: "SkeletonView", package: "SkeletonView", condition: .when(platforms: [.iOS])),
-                "RxDataSources", "Then", "Swinject", "SwinjectAutoregistration", "Lottie", "Reachability", "RxFlow", "PMSRxModule"
+                "RxDataSources", "Then", "Swinject", "SwinjectAutoregistration", "Lottie", "Reachability", "RxFlow", "PMSRxModule", "FSCalendar"
             ],
             path: "PMSPresentation/Classes")
     ]
