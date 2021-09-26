@@ -8,9 +8,9 @@
 import UIKit
 import RxSwift
 import Reachability
-import NaverThirdPartyLogin
-import FBSDKLoginKit
-import KakaoOpenSDK
+//import NaverThirdPartyLogin
+//import FBSDKLoginKit
+//import KakaoOpenSDK
 import AuthenticationServices
 
 final public class LoginViewController: UIViewController {
@@ -21,9 +21,9 @@ final public class LoginViewController: UIViewController {
     
     // MARK: - OAuth
     
-    private let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
-    private let facebookManager = LoginManager()
-    
+//    private let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
+//    private let facebookManager = LoginManager()
+//    
     private let loginViewStack = UIStackView().then {
         $0.axis = .vertical
         $0.spacing = 40.0
@@ -108,7 +108,7 @@ final public class LoginViewController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         try? reachability.startNotifier()
-        AnalyticsManager.view_signIn.log()
+//        AnalyticsManager.view_signIn.log()
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
@@ -184,69 +184,69 @@ final public class LoginViewController: UIViewController {
             .bind(to: viewModel.input.eyeButtonTapped)
             .disposed(by: disposeBag)
         
-        facebookButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                AnalyticsManager.click_naver.log()
-                let configuration = LoginConfiguration(
-                    permissions: ["email"],
-                    tracking: .enabled,
-                    nonce: "123"
-                )
-                self?.facebookManager.logIn(configuration: configuration!, completion: { result in
-                    switch result {
-                    case .cancelled: break
-                    case .failed(let error):
-                        self?.viewModel.input.oAuthError.accept(error)
-                    case .success:
-                        Log.info("Facebook : \(String(describing: AuthenticationToken.current?.tokenString))")
-                        if let token = AuthenticationToken.current?.tokenString {
-                            self?.viewModel.input.facebookLoginSuccess.accept(token)
-                        }
-                    }
-                })
-            })
-            .disposed(by: disposeBag)
+//        facebookButton.rx.tap
+//            .subscribe(onNext: { [weak self] _ in
+////                AnalyticsManager.click_naver.log()
+//                let configuration = LoginConfiguration(
+//                    permissions: ["email"],
+//                    tracking: .enabled,
+//                    nonce: "123"
+//                )
+//                self?.facebookManager.logIn(configuration: configuration!, completion: { result in
+//                    switch result {
+//                    case .cancelled: break
+//                    case .failed(let error):
+//                        self?.viewModel.input.oAuthError.accept(error)
+//                    case .success:
+//                        Log.info("Facebook : \(String(describing: AuthenticationToken.current?.tokenString))")
+//                        if let token = AuthenticationToken.current?.tokenString {
+//                            self?.viewModel.input.facebookLoginSuccess.accept(token)
+//                        }
+//                    }
+//                })
+//            })
+//            .disposed(by: disposeBag)
         
-        naverButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                AnalyticsManager.click_naver.log()
-                self?.loginInstance?.requestThirdPartyLogin()
-            })
-            .disposed(by: disposeBag)
+//        naverButton.rx.tap
+//            .subscribe(onNext: { [weak self] _ in
+//                AnalyticsManager.click_naver.log()
+//                self?.loginInstance?.requestThirdPartyLogin()
+//            })
+//            .disposed(by: disposeBag)
         
-        kakaotalkButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                AnalyticsManager.click_kakaotalk.log()
-                guard let session = KOSession.shared() else { return }
-                
-                if session.isOpen() {
-                    session.close()
-                }
-                
-                session.open(completionHandler: { error -> Void in
-                    if !session.isOpen() {
-                        if let error = error as NSError? {
-                            switch error.code {
-                            case Int(KOErrorCancelled.rawValue):
-                                break
-                            default:
-                                print("오류")
-                            }
-                        }
-                    } else {
-                        if let token = session.token {
-                            Log.info("Kakao : \(token)")
-                            self?.viewModel.input.kakaotalkLoginSuccess.accept(token.accessToken)
-                        }
-                    }
-                })
-            })
-            .disposed(by: disposeBag)
+//        kakaotalkButton.rx.tap
+//            .subscribe(onNext: { [weak self] _ in
+//                AnalyticsManager.click_kakaotalk.log()
+//                guard let session = KOSession.shared() else { return }
+//
+//                if session.isOpen() {
+//                    session.close()
+//                }
+//
+//                session.open(completionHandler: { error -> Void in
+//                    if !session.isOpen() {
+//                        if let error = error as NSError? {
+//                            switch error.code {
+//                            case Int(KOErrorCancelled.rawValue):
+//                                break
+//                            default:
+//                                print("오류")
+//                            }
+//                        }
+//                    } else {
+//                        if let token = session.token {
+//                            Log.info("Kakao : \(token)")
+//                            self?.viewModel.input.kakaotalkLoginSuccess.accept(token.accessToken)
+//                        }
+//                    }
+//                })
+//            })
+//            .disposed(by: disposeBag)
         
         if #available(iOS 13.0, *) {
             appleButton.rx.tap
                 .subscribe(onNext: { [weak self] _ in
-                    AnalyticsManager.click_apple.log()
+//                    AnalyticsManager.click_apple.log()
                     let appleIDProvider = ASAuthorizationAppleIDProvider()
                     let request = appleIDProvider.createRequest()
                     request.requestedScopes = [.fullName, .email]

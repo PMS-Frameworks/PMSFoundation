@@ -59,7 +59,7 @@ final public class DeveloperViewController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         try! reachability.startNotifier()
-        AnalyticsManager.view_developers.log()
+//        AnalyticsManager.view_developers.log()
     }
     
     public override func viewWillDisappear(_ animated: Bool) {

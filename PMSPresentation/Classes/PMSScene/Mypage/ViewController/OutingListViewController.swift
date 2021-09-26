@@ -57,7 +57,7 @@ final public class OutingListViewController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         try! reachability.startNotifier()
-        AnalyticsManager.view_outingList.log()
+//        AnalyticsManager.view_outingList.log()
     }
     
     public override func viewWillDisappear(_ animated: Bool) {

@@ -85,7 +85,7 @@ final public class CalendarViewController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         try! reachability.startNotifier()
-        AnalyticsManager.view_calendar.log()
+//        AnalyticsManager.view_calendar.log()
     }
     
     public override func viewWillDisappear(_ animated: Bool) {

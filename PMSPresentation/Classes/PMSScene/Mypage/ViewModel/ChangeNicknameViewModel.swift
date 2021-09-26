@@ -49,7 +49,7 @@ final public class ChangeNicknameViewModel: Stepper {
         
         input.changeButtonTapped
             .asObservable()
-            .map { AnalyticsManager.click_changeNickname.log() }
+//            .map { AnalyticsManager.click_changeNickname.log() }
             .flatMap { [weak self] _ -> Single<Bool> in
                 guard let self = self else { return Single.just(false) }
                 

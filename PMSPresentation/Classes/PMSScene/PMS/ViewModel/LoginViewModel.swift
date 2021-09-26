@@ -91,7 +91,7 @@ final public class LoginViewModel: Stepper {
         
         input.loginButtonTapped
             .asObservable()
-            .map {  AnalyticsManager.click_signIn.log() }
+//            .map {  AnalyticsManager.click_signIn.log() }
             .flatMap { [weak self] _ -> Observable<Bool> in
                 guard let self = self else {
                     return Observable.just(false)

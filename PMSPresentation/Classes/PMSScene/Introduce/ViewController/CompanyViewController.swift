@@ -58,7 +58,7 @@ final public class CompanyViewController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         try! reachability.startNotifier()
-        AnalyticsManager.view_companyIntroduce.log()
+//        AnalyticsManager.view_companyIntroduce.log()
     }
     
     public override func viewWillDisappear(_ animated: Bool) {

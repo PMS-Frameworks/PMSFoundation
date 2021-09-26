@@ -8,9 +8,9 @@
 import UIKit
 import RxSwift
 import Reachability
-import NaverThirdPartyLogin
-import FBSDKLoginKit
-import KakaoOpenSDK
+//import NaverThirdPartyLogin
+//import FBSDKLoginKit
+//import KakaoOpenSDK
 import AuthenticationServices
 
 final public class RegisterViewController: UIViewController {
@@ -21,8 +21,8 @@ final public class RegisterViewController: UIViewController {
     
     // MARK: - OAuth
     
-    private let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
-    private let facebookManager = LoginManager()
+//    private let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
+//    private let facebookManager = LoginManager()
     
     private let registerViewStack = UIStackView().then {
         $0.axis = .vertical
@@ -168,7 +168,7 @@ final public class RegisterViewController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         try! reachability.startNotifier()
-        AnalyticsManager.view_signUp.log()
+//        AnalyticsManager.view_signUp.log()
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
@@ -316,40 +316,40 @@ final public class RegisterViewController: UIViewController {
             .bind(to: viewModel.input.eyeButtonTapped)
             .disposed(by: disposeBag)
         
-        facebookButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                AnalyticsManager.click_naver.log()
-                let configuration = LoginConfiguration(
-                    permissions: ["email"],
-                    tracking: .enabled,
-                    nonce: "123"
-                )
-                self?.facebookManager.logIn(configuration: configuration!, completion: { result in
-                    switch result {
-                    case .cancelled: break
-                    case .failed(let error):
-                        self?.viewModel.input.oAuthError.accept(error)
-                    case .success:
-                        Log.info("Facebook : \(String(describing: AuthenticationToken.current?.tokenString))")
-                        if let token = AuthenticationToken.current?.tokenString {
-                            self?.viewModel.input.facebookRegisterSuccess.accept(token)
-                        }
-                    }
-                })
-            })
-            .disposed(by: disposeBag)
-        
-        naverButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                AnalyticsManager.click_naver.log()
-                self?.loginInstance?.requestThirdPartyLogin()
-            })
-            .disposed(by: disposeBag)
+//        facebookButton.rx.tap
+//            .subscribe(onNext: { [weak self] _ in
+//                AnalyticsManager.click_naver.log()
+//                let configuration = LoginConfiguration(
+//                    permissions: ["email"],
+//                    tracking: .enabled,
+//                    nonce: "123"
+//                )
+//                self?.facebookManager.logIn(configuration: configuration!, completion: { result in
+//                    switch result {
+//                    case .cancelled: break
+//                    case .failed(let error):
+//                        self?.viewModel.input.oAuthError.accept(error)
+//                    case .success:
+//                        Log.info("Facebook : \(String(describing: AuthenticationToken.current?.tokenString))")
+//                        if let token = AuthenticationToken.current?.tokenString {
+//                            self?.viewModel.input.facebookRegisterSuccess.accept(token)
+//                        }
+//                    }
+//                })
+//            })
+//            .disposed(by: disposeBag)
+//
+//        naverButton.rx.tap
+//            .subscribe(onNext: { [weak self] _ in
+//                AnalyticsManager.click_naver.log()
+//                self?.loginInstance?.requestThirdPartyLogin()
+//            })
+//            .disposed(by: disposeBag)
         
         if #available(iOS 13.0, *) {
             appleButton.rx.tap
                 .subscribe(onNext: { [weak self] _ in
-                    AnalyticsManager.click_apple.log()
+//                    AnalyticsManager.click_apple.log()
                     let appleIDProvider = ASAuthorizationAppleIDProvider()
                     let request = appleIDProvider.createRequest()
                     request.requestedScopes = [.fullName, .email]

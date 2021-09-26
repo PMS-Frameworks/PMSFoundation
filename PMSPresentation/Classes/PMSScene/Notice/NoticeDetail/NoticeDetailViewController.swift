@@ -115,7 +115,7 @@ final public class NoticeDetailViewController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         try! reachability.startNotifier()
-        AnalyticsManager.view_notice_detail.log(name: viewModel.title)
+//        AnalyticsManager.view_notice_detail.log(name: viewModel.title)
     }
     
     public override func viewWillDisappear(_ animated: Bool) {

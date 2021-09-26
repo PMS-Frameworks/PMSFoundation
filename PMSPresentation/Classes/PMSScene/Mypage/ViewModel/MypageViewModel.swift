@@ -120,7 +120,7 @@ final public class MypageViewModel: Stepper {
         
         input.changeNicknameButtonTapped
             .subscribe { [weak self] _ in
-                AnalyticsManager.view_changeNickname.log()
+//                AnalyticsManager.view_changeNickname.log()
                 self?.steps.accept(PMSStep.dismissTabbar)
             }.disposed(by: disposeBag)
         
@@ -141,7 +141,7 @@ final public class MypageViewModel: Stepper {
         
         input.logoutButtonTapped
             .subscribe { [weak self] _ in
-                AnalyticsManager.view_logout.log()
+//                AnalyticsManager.view_logout.log()
                 self?.steps.accept(PMSStep.logout)
             }.disposed(by: disposeBag)
         

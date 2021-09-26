@@ -125,7 +125,7 @@ final public class RegisterViewModel: Stepper {
         
         input.registerButtonTapped
             .asObservable()
-            .map {  AnalyticsManager.click_signUp.log() }
+//            .map {  AnalyticsManager.click_signUp.log() }
             .flatMap { [weak self] _ -> Observable<Bool> in
                 guard let self = self else {
                     return Observable.just(false)

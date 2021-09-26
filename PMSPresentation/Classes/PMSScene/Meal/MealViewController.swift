@@ -70,7 +70,7 @@ final public class MealViewController: UIViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        AnalyticsManager.view_meal.log()
+//        AnalyticsManager.view_meal.log()
     }
     
     private func setupSubview() {

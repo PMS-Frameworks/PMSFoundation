@@ -57,7 +57,7 @@ final public class PointListViewController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         try! reachability.startNotifier()
-        AnalyticsManager.view_pointList.log()
+//        AnalyticsManager.view_pointList.log()
     }
     
     public override func viewWillDisappear(_ animated: Bool) {

@@ -69,7 +69,7 @@ final public class ClubViewController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         try! reachability.startNotifier()
-        AnalyticsManager.view_clubIntroduce.log()
+//        AnalyticsManager.view_clubIntroduce.log()
     }
     
     public override func viewWillDisappear(_ animated: Bool) {

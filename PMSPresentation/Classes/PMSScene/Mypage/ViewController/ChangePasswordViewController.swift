@@ -115,7 +115,7 @@ final public class ChangePasswordViewController: UIViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        AnalyticsManager.view_changePassword.log()
+//        AnalyticsManager.view_changePassword.log()
     }
     
     private func setupSubview() {

@@ -12,7 +12,7 @@ import Then
 
 public extension UIViewController {
     func showErrorAlert(with message: String, access: AccessibilityString) {
-        AnalyticsManager.error.log(message: message)
+//        AnalyticsManager.error.log(message: message)
         DispatchQueue.main.async {
             let alert = UIAlertController(title: nil,
                                           message: message,
@@ -25,7 +25,7 @@ public extension UIViewController {
     }
     
     func showSuccessLottie(label: LocalizedString) {
-        AnalyticsManager.success.log(label: label.localized)
+//        AnalyticsManager.success.log(label: label.localized)
         DispatchQueue.main.async {
             let lottieView = SuccessLottieView(text: label)
             self.view.addSubview(lottieView)

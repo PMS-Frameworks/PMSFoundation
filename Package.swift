@@ -24,6 +24,7 @@ let package = Package(
         .package(url: "https://github.com/RxSwiftCommunity/RxFlow", from: "2.11.0"),
         .package(url: "https://github.com/PMS-Frameworks/PMSRxModule", from: "1.0.0"),
         .package(url: "https://github.com/WenchaoD/FSCalendar", from: "2.8.2"),
+        .package(url: "https://github.com/PMS-Frameworks/PMSDomain", from: "1.0.0"),
     ],
     targets: [
         .target(
@@ -32,7 +33,7 @@ let package = Package(
                 .product(name: "SnapKit", package: "SnapKit", condition: .when(platforms: [.iOS])),
                 .product(name: "Kingfisher", package: "Kingfisher", condition: .when(platforms: [.iOS])),
                 .product(name: "SkeletonView", package: "SkeletonView", condition: .when(platforms: [.iOS])),
-                "RxDataSources", "Then", "Swinject", "SwinjectAutoregistration", "Lottie", "Reachability", "RxFlow", "PMSRxModule", "FSCalendar"
+                "RxDataSources", "Then", "Swinject", "SwinjectAutoregistration", "Lottie", "Reachability", "RxFlow", "PMSRxModule", "FSCalendar", "PMSDomain"
             ],
             path: "PMSPresentation/Classes")
     ]

@@ -44,7 +44,7 @@ final public class PMSViewController: UIViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        AnalyticsManager.view_PMS.log()
+//        AnalyticsManager.view_PMS.log()
     }
     
     private func setupSubview() {

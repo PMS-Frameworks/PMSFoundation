@@ -54,13 +54,13 @@ final public class NoticeViewModel: Stepper {
             .subscribe(onNext: { [weak self] value in
                 switch self?.input.segmentControl.value {
                 case 0:
-                    AnalyticsManager.view_notice.log()
+//                    AnalyticsManager.view_notice.log()
                     self?.input.getNotice.accept(())
                 case 1:
-                    AnalyticsManager.view_letter.log()
+//                    AnalyticsManager.view_letter.log()
                     self?.input.getLetter.accept(())
                 default:
-                    AnalyticsManager.view_album.log()
+//                    AnalyticsManager.view_album.log()
                     self?.input.getAlbum.accept(())
                 }
             })
@@ -68,7 +68,7 @@ final public class NoticeViewModel: Stepper {
         
         input.getNotice
             .asObservable()
-            .map { _ in AnalyticsManager.view_notice.log() }
+//            .map { _ in AnalyticsManager.view_notice.log() }
             .flatMapLatest { [weak self] _ -> Observable<NoticeList> in
                 guard let self = self else {
                     return Observable.just(NoticeList(totalPage: 1, notices: [Notice]()))
@@ -89,7 +89,7 @@ final public class NoticeViewModel: Stepper {
         
         input.getLetter
             .asObservable()
-            .map { _ in AnalyticsManager.view_letter.log() }
+//            .map { _ in AnalyticsManager.view_letter.log() }
             .flatMapLatest { [weak self] _ -> Observable<NoticeList> in
                 guard let self = self else {
                     return Observable.just(NoticeList(totalPage: 1, notices: [Notice]()))
@@ -110,7 +110,7 @@ final public class NoticeViewModel: Stepper {
         
         input.getAlbum
             .asObservable()
-            .map { _ in AnalyticsManager.view_album.log() }
+//            .map { _ in AnalyticsManager.view_album.log() }
             .flatMapLatest { [weak self] _ -> Observable<AlbumList> in
                 guard let self = self else {
                     return Observable.just(AlbumList(totalPage: 1, totalLength: 1, albums: [Album]()))

@@ -47,7 +47,7 @@ final public class IntroduceViewController: UIViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        AnalyticsManager.view_introduce.log()
+//        AnalyticsManager.view_introduce.log()
     }
     
     private func setupSubview() {

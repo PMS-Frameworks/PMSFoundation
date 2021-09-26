@@ -117,7 +117,7 @@ final public class ChangePasswordViewModel: Stepper {
         
         input.changePasswordButtonTapped
             .asObservable()
-            .map { AnalyticsManager.click_changePassword.log() }
+//            .map { AnalyticsManager.click_changePassword.log() }
             .flatMap { [weak self] _ -> Observable<Bool> in
                 guard let self = self else { return Observable.just(false) }
                 
